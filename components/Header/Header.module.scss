@@ -1,0 +1,31 @@
+@import "../../helpers//constants.scss";
+
+.container {
+  border-bottom: 2px solid #eee;
+  height: 50px;
+}
+
+.logo {
+  float: left;
+  height: 40px;
+  margin: 0.5rem;
+}
+
+.menu {
+  padding: 0;
+  float: right;
+  color: $font-color;
+}
+
+.menuItem {
+  display: block;
+  float: left;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.button {
+  background-color: cornflowerblue;
+  color: white;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+}

@@ -1,0 +1,31 @@
+@import "../helpers/constants.scss";
+
+.container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  background: $background;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.input {
+  margin-bottom: 10px;
+  font-size: larger;
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.button {
+  height: 100px;
+  border-radius: 10px;
+  font-size: larger;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+}
