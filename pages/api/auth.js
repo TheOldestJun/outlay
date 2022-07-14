@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 
 const Auth = async (req, res) => {
   //add new user with bcrypted password
+  let { name, email, password } = req.body;
   if (req.body.command === "add-user") {
     if (!name || !email || !password) {
       req.end(
@@ -13,7 +14,7 @@ const Auth = async (req, res) => {
       );
       return;
     }
-    let { name, email, password } = req.body;
+
     const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
     password = await bcrypt.hash(password, salt);
