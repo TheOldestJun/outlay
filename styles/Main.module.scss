@@ -26,7 +26,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: aliceblue;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   border: 1px solid;
   margin: 5px;
   border-radius: 5px;
