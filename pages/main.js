@@ -44,6 +44,7 @@ const Main = ({ products }) => {
       command: "add-product",
       name: newItem,
     });
+    setFilteredProducts(null);
     alert(res.data.message);
   };
 
