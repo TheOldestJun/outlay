@@ -2,7 +2,7 @@ import styles from "../styles/Home.module.scss";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { setLogin, setUser } from "../store/loginSlice";
+import { setLogin, setUser, setRole } from "../store/loginSlice";
 import { useDispatch } from "react-redux";
 
 export default function Home() {
@@ -23,6 +23,7 @@ export default function Home() {
     } else {
       dispatch(setLogin());
       dispatch(setUser(result.data.userName));
+      dispatch(setRole(result.data.userRole));
       push("/main");
     }
   };

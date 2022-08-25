@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setUseProxies } from "immer";
 
 let initialState = {
   login: false,
   user: "",
+  role: "",
 };
 
 const loginSlice = createSlice({
@@ -20,8 +20,11 @@ const loginSlice = createSlice({
     setUser(state, payload) {
       state.user = payload;
     },
+    setRole(state, payload) {
+      state.role = payload;
+    },
   },
 });
 
-export const { setLogin, setLogout, setUser } = loginSlice.actions;
+export const { setLogin, setLogout, setUser, setRole } = loginSlice.actions;
 export default loginSlice.reducer;

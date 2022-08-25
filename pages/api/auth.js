@@ -58,6 +58,7 @@ const Auth = async (req, res) => {
     res.end(
       JSON.stringify({
         userName: user.name,
+        userRole: user.role,
       }),
     );
   }
