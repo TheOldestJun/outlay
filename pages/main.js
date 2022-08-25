@@ -59,17 +59,19 @@ const Main = ({ products }) => {
         <SmartSearch search={updateFilter} />
         <div className={styles.grid}>
           {newItem ? (
-            <div
-              onClick={addProduct}
-              className={styles.card}
-              style={{
-                backgroundImage: `url('/img/product/no-image.png')`,
-                backgroundSize: "100% 100%",
-              }}
-            >
-              <h3>{newItem}</h3>
-              <h3 style={{ color: "red" }}>Добавить?</h3>
-            </div>
+            <a href='#'>
+              <div
+                onClick={addProduct}
+                className={styles.card}
+                style={{
+                  backgroundImage: `url('/img/product/no-image.png')`,
+                  backgroundSize: "100% 100%",
+                }}
+              >
+                <h3>{newItem}</h3>
+                <h3 style={{ color: "red", cursor: "pointer" }}>Добавить?</h3>
+              </div>
+            </a>
           ) : filteredProducts ? (
             filteredProducts.map((product) => {
               return (
