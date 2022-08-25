@@ -51,11 +51,13 @@ const Id = ({ product, average }) => {
             />
             <button className={styles.button}>Ввод</button>
           </form>
-          <ImageUploader
-            clientImg={clientImg}
-            imgUrl={url}
-            productId={product.id}
-          />
+          {process.env.NODE_ENV === "development" && (
+            <ImageUploader
+              clientImg={clientImg}
+              imgUrl={url}
+              productId={product.id}
+            />
+          )}
         </div>
       </div>
     </>
