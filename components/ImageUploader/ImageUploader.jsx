@@ -26,6 +26,7 @@ const ImageUploader = ({ imgUrl, clientImg, productId }) => {
       method: "POST",
       body,
     });
+    console.log(response);
     alert(response.statusText);
   };
 

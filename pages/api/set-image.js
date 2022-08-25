@@ -31,8 +31,8 @@ const SetImage = async (req, res) => {
           img: `/img/product/${fields.imgName}`,
         },
       });
-      res.end();
     });
+    res.end();
   }
 };
 
