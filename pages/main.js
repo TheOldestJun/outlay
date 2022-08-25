@@ -3,12 +3,14 @@ import prisma from "../prisma";
 import axios from "axios";
 import SmartSearch from "../components/SmartSearch/SmartSearch";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { capitalize } from "../helpers/functions";
 import { useSelector } from "react-redux";
 import Oops from "../components/Oops/Oops";
 
 const Main = ({ products }) => {
+  const { push } = useRouter();
   const [filteredProducts, setFilteredProducts] = useState();
   const [newItem, setNewItem] = useState("");
   const login = useSelector((state) => state.login.login);
@@ -46,6 +48,7 @@ const Main = ({ products }) => {
     });
     setFilteredProducts(null);
     alert(res.data.message);
+    push("/main");
   };
 
   return (
