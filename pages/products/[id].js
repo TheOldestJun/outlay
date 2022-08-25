@@ -10,7 +10,6 @@ import Oops from "../../components/Oops/Oops";
 
 const Id = ({ product, average }) => {
   const [price, setPrice] = useState("");
-  const [margin, setMargin] = useState(0);
   const [currentAverage, setCurrentAverage] = useState(average);
   const [url, setUrl] = useState(product.img);
   const login = useSelector((state) => state.login.login);
@@ -24,7 +23,6 @@ const Id = ({ product, average }) => {
       command: "add-by-productId",
       productId: product.id,
       amount: parseFloat(price),
-      margin: parseFloat(margin),
     });
     if (result.data.status === "error") {
       alert(result.data.message);

@@ -3,9 +3,9 @@ import bcrypt from "bcrypt";
 
 const Auth = async (req, res) => {
   //add new user with bcrypted password
-  let { name, email, password } = req.body;
+  let { name, email, password, role } = req.body;
   if (req.body.command === "add-user") {
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !role) {
       req.end(
         JSON.stringify({
           status: "error",
@@ -23,6 +23,7 @@ const Auth = async (req, res) => {
         name: name,
         email: email,
         password: password,
+        role: role,
       },
     });
     res.end(JSON.stringify(user));

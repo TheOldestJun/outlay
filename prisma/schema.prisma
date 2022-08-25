@@ -16,6 +16,7 @@ model User {
     email String @unique
     password String
     photo String @default("/img/user/default-user.png")
+    role String
 }
 
 model Product {
@@ -30,7 +31,6 @@ model Product {
 model Price {
     id String @id @default(uuid())
     amount Float 
-    margin Int @default(0)
     productId String
     product Product @relation(fields: [productId], references: [id])
     dateCreated DateTime @default(now())

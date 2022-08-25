@@ -2,7 +2,7 @@ import prisma from "../../prisma";
 import { getPeriodData, countAverage } from "../../helpers/functions";
 
 const Price = async (req, res) => {
-  let { amount, productId, margin = 0 } = req.body;
+  let { amount, productId } = req.body;
 
   if (req.body.command === "add-by-productId") {
     if (!amount) {
@@ -19,7 +19,6 @@ const Price = async (req, res) => {
       data: {
         amount: amount,
         productId: productId,
-        margin: margin,
       },
     });
     //получаем новый массив данных с новой ценой
