@@ -14,7 +14,7 @@ const Main = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState();
   const [newItem, setNewItem] = useState("");
   const login = useSelector((state) => state.login.login);
-
+  //обычная сортировка нужна один раз не выносил в отдельный файл
   products.sort((a, b) => {
     if (a.name > b.name) {
       return 1;
@@ -29,12 +29,14 @@ const Main = ({ products }) => {
     let filteredOptions = [];
     for (let i = 0; i < products.length; i++) {
       let item = products[i];
+      //если хоть одна буква из инпута есть в названии продукта кидаем в массив отсортированных
       if (item.name.toLowerCase().indexOf(text) != -1) {
         filteredOptions.push(products[i]);
-        setNewItem("");
+        setNewItem(""); //нет нового продукта
       }
     }
     setFilteredProducts([...filteredOptions]);
+    //если пусто в найденном - переходим к созданию нового продукта с именем которое пользолватель внес в инпут с большой буквы для красоты
     if (filteredOptions.length === 0) {
       setNewItem(capitalize(text));
     }
@@ -58,7 +60,7 @@ const Main = ({ products }) => {
         <h1>Выбирай продукт</h1>
         <SmartSearch search={updateFilter} />
         <div className={styles.grid}>
-          {newItem ? (
+          {newItem ? ( //карточка нового продукта
             <a href='#'>
               <div
                 onClick={addProduct}
@@ -72,7 +74,7 @@ const Main = ({ products }) => {
                 <h3 style={{ color: "red", cursor: "pointer" }}>Добавить?</h3>
               </div>
             </a>
-          ) : filteredProducts ? (
+          ) : filteredProducts ? ( //найдены совпадения
             filteredProducts.map((product) => {
               return (
                 <Link
@@ -97,6 +99,7 @@ const Main = ({ products }) => {
           ) : (
             products.map((product) => {
               return (
+                //просто список ВСЕХ продуктов
                 <Link
                   href='/products/[id]'
                   as={"products/" + product.id}

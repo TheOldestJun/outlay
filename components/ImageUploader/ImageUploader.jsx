@@ -22,6 +22,7 @@ const ImageUploader = ({ imgUrl, clientImg, productId }) => {
     body.append("file", image);
     body.append("productId", productId);
     body.append("imgName", image.name);
+    //приходится использовать fetch а не axios для передачи формы с потоковым изображением
     const response = await fetch("/api/set-image", {
       method: "POST",
       body,

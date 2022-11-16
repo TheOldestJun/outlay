@@ -38,7 +38,7 @@ const Id = ({ product, average }) => {
           <h3 className={styles.h3}>
             Текущая средняя цена - {parseFloat(currentAverage).toFixed(2)}
           </h3>
-          <Image src={url} width='250px' height='250px' />
+          <Image src={url} width='250px' height='250px' alt='current product' />
 
           <form onSubmit={submit} className={styles.form}>
             <p>Новая цена</p>
@@ -51,7 +51,7 @@ const Id = ({ product, average }) => {
             />
             <button className={styles.button}>Ввод</button>
           </form>
-          {process.env.NODE_ENV === "development" && (
+          {process.env.NODE_ENV === "development" && ( //выключаем возможность обновления карточки для Vercel
             <ImageUploader
               clientImg={clientImg}
               imgUrl={url}
